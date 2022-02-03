@@ -1,10 +1,10 @@
-const API = " https://pokeapi.co/api/v2/pokemon?limit=50&offset=00";
+const API = "https://pokeapi.co/api/v2/pokemon?offset=00&limit=8";
 
 const getAPI = (url) => {
   return fetch(url)
     .then((response) => response.json())
     .then((datosJson) => {
-      cardData(datosJson.results);
+      cardData(datosJson.results), pagination(datosJson);
     })
 
     .catch((error) => {
@@ -55,13 +55,13 @@ const cardData = (data) => {
       html += `
       <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 p-4">
       <div class="card h-100">
-      <img src="${pokemon.imagen}" class="card-img-top" alt="...">
+      <img src="${pokemon.imagen}" class="card-img-top pokemon">
       <div class="card-body">
-      <h5 class="card-title">Altura: ${pokemon.altura}</h5>
-      <h5 class="card-title">Peso: ${pokemon.peso}</h5>
+      <h5 class="card-title "><strong>Altura: </strong><p class="text-dark">${pokemon.altura}</p></h5>
+      <h5 class="card-title "><strong>Peso: </strong><p class="text-dark">${pokemon.peso}</p></h5>
       </div>
-      <div class="card-footer">
-      <small class="text-muted">${pokemon.nombre}</small>
+      <div class="bg-secondary card-footer">
+      <h4 class="text-gray text-center"><a href="" class="text-link">${pokemon.nombre}</a></h4>
       </div>
       </div>
       </div>
@@ -73,6 +73,19 @@ const cardData = (data) => {
   });
 
 };
+
+
+
+//Paginacion de pokemons
+const pagination = (info) => {
+
+  let html = "";
+
+  html += `<li class="page-item ${info.previous == null ? "disabled" : ""}"><a class="btn btn-primary" onclick="getAPI('${info.previous}')"><strong>Prev</strong></a></li>`;
+  html += `<li class="page-item ${info.next == null ? "disabled" : ""}"><a class="btn btn-primary" onclick="getAPI('${info.next}')"><strong>Next</strong></a></li>`;
+
+  document.getElementById("pagination").innerHTML = html;
+}
 
 
 //Cuando se ejecuta se evnia la variable de la URL y la funcion la recibe

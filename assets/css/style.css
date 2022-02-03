@@ -1,0 +1,81 @@
+/* Variable CSS en Root para estandarizar propiedades genericas*/
+:root {
+  --color1: #3D57AC;
+  --color2: #FF3E32;
+  --color3: #FFCB03;
+  --color4: #f5f5f5;
+  --color5: #2F2F2F;
+}
+
+body {
+  font-family: "Coustard", serif;
+  background-color: var(--color5);
+}
+
+.text-dark {
+  color: var(--color1) !important;
+}
+
+.bg-dark {
+  background-color: var(--color1) !important;
+}
+
+.bg-white {
+  background-color: var(--color4) !important;
+}
+
+.text-secondary {
+  color: var(--color2);
+}
+
+.bg-secondary {
+  background-color: var(--color2) !important;
+}
+
+.text-gray {
+  color: var(--color4);
+}
+
+.bg-gray {
+  background-color: var(--color4);
+}
+
+.text-warning {
+  color: var(--color3);
+}
+
+.font2 {
+  font-family: "Anton", sans-serif;
+}
+
+ul {
+  cursor: pointer;
+}
+
+.text-link {
+  color: var(--color3);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--color5);
+}
+
+.page-link {
+  background-color: var(--color3);
+}
+
+.pokebola {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 79px;
+  height: auto;
+}
+
+.pokemon {
+  width: 220px;
+  height: 220px;
+  display: block;
+  margin: auto;
+}
