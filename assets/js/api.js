@@ -1,4 +1,4 @@
-const API = "https://pokeapi.co/api/v2/pokemon?offset=00&limit=8";
+const API = "https://pokeapi.co/api/v2/pokemon?offset=00&limit=50";
 
 const getAPI = (url) => {
   return fetch(url)
